@@ -42,17 +42,17 @@
 
                 @yield('content')
 
-                
+
             </div>
             <footer class="main-footer">
                 <div class="footer-left">
-                    Copyright &copy; 2018
+                    Copyright &copy; 2024
                     <div class="bullet"></div>
-                    Design By
-                    <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+                    <a href="https://github.com/kamrulcse404/laravel_news_portal">Md Kamrul Hasan</a>
                 </div>
-                <div class="footer-right"></div>
             </footer>
+
+            
         </div>
     </div>
 
