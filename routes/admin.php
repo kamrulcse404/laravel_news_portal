@@ -11,6 +11,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
 
     Route::post('logout', [AdminAuthenticationController::class, 'logout'])->name('logout');
 
+
+    // reset password
+    Route::get('forgot-password', [AdminAuthenticationController::class, 'forgotPassword'])->name('forgot-password');
+    Route::post('forgot-password', [AdminAuthenticationController::class, 'sendResetLink'])->name('forgot-password.send');
+
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']], function(){
