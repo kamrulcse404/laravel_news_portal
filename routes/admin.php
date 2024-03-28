@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminAuthenticationController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,5 +26,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']], function(){
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('admin');
+
+    /**
+     * Profile Routes
+    */
+    Route::resource('profile', ProfileController::class);
 });
 
