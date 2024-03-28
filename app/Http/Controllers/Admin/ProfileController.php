@@ -9,8 +9,7 @@ use App\Models\Admin;
 use App\Traits\FileUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationException;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class ProfileController extends Controller
@@ -73,6 +72,9 @@ class ProfileController extends Controller
 
         $admin->save();
 
+        toast(__('Profile Updated!'),'success')->width('400');
+
+
         return redirect()->back();
     }
 
@@ -89,6 +91,8 @@ class ProfileController extends Controller
         $admin = Admin::findOrFail($id);
         $admin->password = bcrypt($request->password);
         $admin->save();
+
+        toast(__('Password Updated!'),'success')->width('400');
 
         return redirect()->back();
     }
