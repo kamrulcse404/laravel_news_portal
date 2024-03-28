@@ -330,6 +330,7 @@
                             <td class="wrapper">
                                 <p>Hi there</p>
                                 <p>Here is your password reset link</p>
+
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0"
                                     class="btn btn-primary">
                                     <tbody>
@@ -339,8 +340,7 @@
                                                     cellspacing="0">
                                                     <tbody>
                                                         <tr>
-                                                            <td> <a href="" target="_blank">Call To
-                                                                    Action</a> </td>
+                                                            <td> <a href="{{ route('admin.reset-password', ['token' => $token, 'email' => $email]) }}" target="_blank">Click here to password reset</a> </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -348,33 +348,14 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <p>This is a really simple email template. It's sole purpose is to get the recipient to
-                                    click the button with no distractions.</p>
-                                <p>Good luck! Hope it works.</p>
+
                             </td>
                         </tr>
 
                         <!-- END MAIN CONTENT AREA -->
                     </table>
 
-                    <!-- START FOOTER -->
-                    <div class="footer">
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td class="content-block">
-                                    <span class="apple-link">Company Inc, 7-11 Commercial Ct, Belfast BT1 2NB</span>
-                                    <br> Don't like these emails? <a href="http://htmlemail.io/blog">Unsubscribe</a>.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="content-block powered-by">
-                                    Powered by <a href="http://htmlemail.io">HTMLemail.io</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
 
-                    <!-- END FOOTER -->
 
                     <!-- END CENTERED WHITE CONTAINER -->
                 </div>

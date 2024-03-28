@@ -50,6 +50,10 @@
 
                             <div class="card-body">
                                 <p>Forgot your password? No problem. We got you</p>
+                                <br>
+                                @if (session()->has('success'))
+                                    <i><b>{{ session()->get('success') }}</b></i>
+                                @endif
                                 <form method="POST" action="{{ route('admin.forgot-password.send') }}" class="needs-validation" novalidate="">
 
                                     @csrf
