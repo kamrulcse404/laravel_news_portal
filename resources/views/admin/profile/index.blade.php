@@ -22,7 +22,15 @@
             <div class="row mt-sm-4">
                 <div class="col-12 col-md-6">
                     <div class="card">
-                        <form method="post" class="needs-validation" novalidate="">
+                        <form method="post" class="needs-validation" novalidate=""
+                            action="{{ route('admin.profile.update', auth()->guard('admin')->user()->id) }}"
+                            enctype="multipart/form-data">
+
+                            @csrf
+
+                            @method('PUT')
+
+
                             <div class="card-header">
                                 <h4>{{ __('Edit Profile') }}</h4>
                             </div>
@@ -31,27 +39,37 @@
 
                                     <div class="form-group col-12">
                                         <div id="image-preview" class="image-preview">
-                                            <label for="image-upload" id="image-label">Choose File</label>
+                                            <label for="image-upload" id="image-label">{{ __('Choose File') }}</label>
                                             <input type="file" name="image" id="image-upload" />
                                         </div>
+                                        @error('image')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group col-12">
                                         <label>{{ __('First Name') }}</label>
                                         <input type="text" class="form-control" value="{{ $user->name }}"
-                                            required="" />
+                                            required="" name="name" />
                                         <div class="invalid-feedback">
                                             {{ __(' Please fill in the name') }}
                                         </div>
+                                        @error('name')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group col-12">
                                         <label>{{ __('Email') }}</label>
                                         <input type="email" class="form-control" value="{{ $user->email }}"
-                                            required="" />
+                                            required="" name="email" />
                                         <div class="invalid-feedback">
                                             {{ __('Please fill in the email') }}
                                         </div>
+
+                                        @error('email')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
 
 
@@ -77,8 +95,7 @@
 
                                     <div class="form-group col-12">
                                         <label>{{ __('Old Password') }}</label>
-                                        <input type="text" class="form-control" value=""
-                                            required="" />
+                                        <input type="text" class="form-control" value="" required="" />
                                         <div class="invalid-feedback">
                                             {{ __(' Please fill in the name') }}
                                         </div>
@@ -86,8 +103,7 @@
 
                                     <div class="form-group col-12">
                                         <label>{{ __('New Password') }}</label>
-                                        <input type="email" class="form-control" value=""
-                                            required="" />
+                                        <input type="email" class="form-control" value="" required="" />
                                         <div class="invalid-feedback">
                                             {{ __('Please fill in the email') }}
                                         </div>
@@ -95,8 +111,7 @@
 
                                     <div class="form-group col-12">
                                         <label>{{ __('Confirmed Password') }}</label>
-                                        <input type="email" class="form-control" value=""
-                                            required="" />
+                                        <input type="email" class="form-control" value="" required="" />
                                         <div class="invalid-feedback">
                                             {{ __('Please fill in the email') }}
                                         </div>
